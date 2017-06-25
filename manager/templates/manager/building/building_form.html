@@ -1,0 +1,52 @@
+{% extends 'manager/layout/base.html' %}
+
+
+{% block title %}
+
+	{{ title_form }}
+
+{% endblock %}
+
+{% block header_title %}
+
+	Edificios
+
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-8 col-md-push-2">
+			<div class="card">
+				<div class="card-header" data-background-color="purple">
+					<h4 class="title">{{ title_form }}</h4>
+					{% comment %}<p class="category">Complete your profile</p>{% endcomment %}
+				</div>
+				<div class="card-content">
+					<form method="post" action="">{% csrf_token %}
+						<div class="form-group label-floating">
+							<label class="control-label">Nombre del Edificio</label>
+							{{ form.name }}
+						</div>
+						<div class="form-group label-floating">
+							<label class="control-label">Direcci&oacute;n</label>
+							{{ form.address }}
+						</div>
+						<div class="form-group label-floating">
+							<label class="control-label">RIF</label>
+							{{ form.rif }}
+						</div>
+						<div class="form-group label-floating">
+							<label class="control-label">N&uacute;mero de Apartamentos</label>
+							{{ form.apartament_number }}
+						</div>
+
+
+						<button type="submit" class="btn btn-primary pull-right">Guardar</button>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

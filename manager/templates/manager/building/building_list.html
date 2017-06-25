@@ -1,0 +1,62 @@
+{% extends 'manager/layout/base.html' %}
+
+
+{% block title %}
+
+	Edificios
+
+{% endblock %}
+
+{% block header_title %}
+
+	Edificios
+
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header" data-background-color="purple">
+					<h4 class="title">Lista de Edificios</h4>
+					<p class="category"><a href="{% url 'manager.building.add' %}" class="btn btn-primary btn-xs">Agregar
+						edificio</a></p>
+				</div>
+				<div class="card-content table-responsive">
+					<table class="table">
+						<thead class="text-primary">
+						<th class="col-md-1 text-center">COD</th>
+						<th class="col-md-8">Nombre</th>
+						<th></th>
+						</thead>
+						<tbody>
+						{% for building in building_list %}
+							<tr>
+								<td class="text-center">{{ building.id }}</td>
+								<td>{{ building }}</td>
+								<td class="text-center"><a class="text-primary"
+														   href="{% url 'manager.building.edit' building.pk %}">Editar</a>
+								</td>
+							</tr>
+
+						{% empty %}
+							<tr>
+								<td class="text-center" colspan="2">
+									No hay edificios creados
+								</td>
+
+							</tr>
+
+						{% endfor %}
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}
